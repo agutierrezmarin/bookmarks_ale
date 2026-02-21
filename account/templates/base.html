@@ -11,25 +11,25 @@
     {% if request.user.is_authenticated %}
     <ul class="menu">
         <li {% if section == "dashboard" %}class="selected"{% endif %}>
-            <a href="{% url "dashboard" %}">My dashboard</a>
+            <a href="{% url "dashboard" %}">Mi panel</a>
         </li>
         <li {% if section == "images" %}class="selected"{% endif %}>
-            <a href="#">Images</a>
+            <a href="#">Imágenes</a>
         </li>
         <li {% if section == "people" %}class="selected"{% endif %}>
-            <a href="#">People</a>
+            <a href="#">Personas</a>
         </li>
     </ul>
     {% endif %}
     <span class="user">
     {% if request.user.is_authenticated %}
-    Hello {{ request.user.first_name|default:request.user.username }},
+    Hola, {{ request.user.first_name|default:request.user.username }}
     <form action="{% url "logout" %}" method="post">
-        <button type="submit">Logout</button>
+        <button type="submit">Salir</button>
         {% csrf_token %}
     </form>
     {% else %}
-    <a href="{% url "login" %}">Log-in</a>
+    <a href="{% url "login" %}">Iniciar sesión</a>
     {% endif %}
     </span>
     </div>
