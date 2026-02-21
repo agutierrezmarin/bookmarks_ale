@@ -1,0 +1,252 @@
+/* =============================================
+   Bookmarks — Base Stylesheet
+   Tema: Minimalista Elegante
+   Paleta: Navy profundo · Oro cálido · Blanco marfil
+   ============================================= */
+
+/* --- Variables de color --- */
+:root {
+  --bg:          #f8f7f4;
+  --bg-card:     #ffffff;
+  --header-bg:   #14142b;
+  --accent:      #c9a84c;
+  --accent-dark: #a07830;
+  --text:        #2d2d2d;
+  --text-muted:  #7a7a7a;
+  --border:      #e2e0db;
+  --error:       #c0392b;
+  --shadow:      0 2px 16px rgba(20, 20, 43, 0.08);
+}
+
+/* --- Reset & base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
+/* --- Header --- */
+#header {
+  background-color: var(--header-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 0 rgba(201, 168, 76, 0.25);
+}
+
+/* Logo */
+.logo {
+  font-family: 'Georgia', serif;
+  font-size: 1.35rem;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+/* Menú de navegación */
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 0;
+}
+
+.menu li a {
+  display: block;
+  padding: 0 1.1rem;
+  line-height: 64px;
+  font-family: 'Georgia', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.menu li a:hover {
+  color: #ffffff;
+}
+
+.menu li.selected a {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Usuario / logout */
+.user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+}
+
+.user button {
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  color: var(--accent);
+  padding: 0.3rem 0.85rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.user button:hover {
+  background: var(--accent);
+  color: var(--header-bg);
+}
+
+.user a {
+  color: var(--accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* --- Contenido principal --- */
+#content {
+  max-width: 860px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Tipografía --- */
+h1 {
+  font-size: 1.9rem;
+  font-weight: normal;
+  letter-spacing: 0.03em;
+  color: var(--header-bg);
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.6rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: normal;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+
+/* --- Formularios --- */
+.login-form {
+  max-width: 400px;
+  margin: 2rem 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2rem 2.25rem;
+  box-shadow: var(--shadow);
+}
+
+form p {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
+}
+
+input[type="submit"] {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.75rem;
+  background: var(--header-bg);
+  color: var(--accent);
+  border: 1px solid var(--header-bg);
+  border-radius: 2px;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background: var(--accent);
+  color: var(--header-bg);
+  border-color: var(--accent);
+}
+
+/* --- Mensajes de error --- */
+.errorlist {
+  list-style: none;
+  color: var(--error);
+  font-size: 0.82rem;
+  margin-bottom: 0.5rem;
+}
+
+ul.errorlist li::before {
+  content: '— ';
+}
+
+/* --- Utilidades --- */
+.text-muted {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}

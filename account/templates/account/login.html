@@ -5,12 +5,13 @@
 {% block content %}
 <h1>Log-In</h1>
 <p>Ingresa tus credenciales de acceso</p>
-<form method="post">
-    {{form.as_p}}
-    {% csrf_token %}
-    <p>
-        <input type="submit" value="Log In">
-    </p>
-
-</form>
+<div class="login-form">
+    <form method="post">
+        {{form.as_p}}
+        {% csrf_token %}
+        <p>
+            <input type="submit" value="Log In">
+        </p>
+    </form>
+</div>
 {% endblock content %}
