@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Edita tu cuenta{% endblock title %}
+
+
+{% block content %}
+<h1>Edita tu cuenta</h1>
+{% if messages %}
+    {% for message in messages %}
+        <p><strong>{{ message }}</strong></p>
+    {% endfor %}
+{% endif %}
+<p>Edita tu cuenta usando el siguiente formulario:</p>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{user_form.as_p}}
+    {{profile_form.as_p}}
+    <p>
+        <input type="submit" value="Guardar Cambios">
+    </p>
+</form>
+{% endblock content %}

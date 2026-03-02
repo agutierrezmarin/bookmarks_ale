@@ -28,7 +28,7 @@ class UserRegistrationForm(forms.ModelForm):
 class UserEditForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
-        fields = ["first_name", " last_name", "email"]
+        fields = ["first_name", "last_name", "email"]
 
 
 class ProfileEditForm(forms.ModelForm):

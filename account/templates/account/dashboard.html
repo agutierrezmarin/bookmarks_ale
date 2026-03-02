@@ -6,4 +6,13 @@
 
 <h1>Mi panel</h1>
 <p>Bienvenido a tu panel de control.</p>
+<ul>
+    <li>
+        <a href="{% url "edit" %}">Edita su perfil</a>
+    </li>
+    <li>
+        <a href="{% url "password_change" %}">Cambia su contrasenia</a>
+    </li>
+</ul>
+
 {% endblock content %}
