@@ -131,3 +131,8 @@ EMAIL_HOST_USER = config("EMAIL_HOST_USER", default="")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", default="")
 EMAIL_USE_TLS = config("EMAIL_USE_TLS", default=False, cast=bool)
 EMAIL_USE_SSL = config("EMAIL_USE_SSL", default=False, cast=bool)
+
+
+# configuracion ded archivos de imagen
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "media"

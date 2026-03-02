@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from .models import Profile
 
 
 class LoginForm(forms.Form):
@@ -9,7 +10,9 @@ class LoginForm(forms.Form):
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
-    password2 = forms.CharField(label="Repite la contraseña", widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label="Repite la contraseña", widget=forms.PasswordInput
+    )
 
     class Meta:
         model = get_user_model()
@@ -20,3 +23,15 @@ class UserRegistrationForm(forms.ModelForm):
         if cd["password"] != cd["password2"]:
             raise forms.ValidationError("Las contrasenias no son iguales")
         return cd["password2"]
+
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ["first_name", " last_name", "email"]
+
+
+class ProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ["date_of_birth", "photo"]
