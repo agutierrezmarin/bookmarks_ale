@@ -206,12 +206,12 @@ p {
     color: var(--text-muted);
 }
 
-ul:not(.nav-list):not(.errorlist) {
+ul:not(.nav-list):not(.errorlist):not(.messages) {
     padding-left: 1.25rem;
     margin-bottom: 1rem;
 }
 
-ul:not(.nav-list):not(.errorlist) li {
+ul:not(.nav-list):not(.errorlist):not(.messages) li {
     margin-bottom: 0.35rem;
     color: var(--text-muted);
 }
@@ -300,6 +300,7 @@ p strong {
     color: var(--success);
     font-weight: 500;
 }
+
 
 /* --- Utilidades --- */
 .text-muted {

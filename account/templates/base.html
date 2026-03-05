@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
 
@@ -52,10 +53,47 @@
         </nav>
         {% endif %}
 
+
         <main id="content">
             {% block content %}{% endblock %}
         </main>
     </div>
 
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+{% if messages %}
+<script>
+    var tagColors = {
+        success: { bg: '#f0fdf4', border: '#16a34a', text: '#15803d' },
+        error:   { bg: '#fef2f2', border: '#dc2626', text: '#b91c1c' },
+        danger:  { bg: '#fef2f2', border: '#dc2626', text: '#b91c1c' },
+        warning: { bg: '#fffbeb', border: '#d97706', text: '#92400e' },
+        info:    { bg: '#eff6ff', border: '#2563eb', text: '#1d4ed8' },
+        debug:   { bg: '#eff6ff', border: '#2563eb', text: '#1d4ed8' },
+    };
+    {% for message in messages %}
+    (function() {
+        var tag = '{{ message.tags }}'.split(' ').find(function(t) { return tagColors[t]; }) || 'info';
+        var c = tagColors[tag];
+        Toastify({
+            text: '{{ message|escapejs }}',
+            duration: 4000,
+            close: true,
+            gravity: 'top',
+            position: 'right',
+            style: {
+                background: c.bg,
+                color: c.text,
+                border: '1px solid ' + c.border,
+                borderLeft: '4px solid ' + c.border,
+                borderRadius: '6px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                fontFamily: "'Roboto', sans-serif",
+                fontSize: '0.875rem',
+            },
+        }).showToast();
+    })();
+    {% endfor %}
+</script>
+{% endif %}
 </body>
 </html>

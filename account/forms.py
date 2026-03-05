@@ -32,6 +32,13 @@ class UserEditForm(forms.ModelForm):
 
 
 class ProfileEditForm(forms.ModelForm):
+    date_of_birth = forms.DateField(
+        label="Fecha de nacimiento",
+        required=False,
+        widget=forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
+        input_formats=["%Y-%m-%d"],
+    )
+
     class Meta:
         model = Profile
         fields = ["date_of_birth", "photo"]

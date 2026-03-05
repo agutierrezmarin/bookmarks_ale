@@ -5,11 +5,6 @@
 
 {% block content %}
 <h1>Edita tu cuenta</h1>
-{% if messages %}
-    {% for message in messages %}
-        <p><strong>{{ message }}</strong></p>
-    {% endfor %}
-{% endif %}
 <p>Edita tu cuenta usando el siguiente formulario:</p>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
